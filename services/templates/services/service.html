@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content%}
+<!--Contenido -->
+{% for platillo in platillos %}
+<div class="contenido-service">
+  <div class="card text-center">
+    <div class="card-header">
+      <h4>{{platillo.subtitle}}</h4>
+      <h3>{{platillo.title}}</h3>
+    </div>
+    <img src="{{ platillo.image.url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-text">{{platillo.content}}</p>
+    </div>
+    <div class="card-footer">
+      <h6>Publicado: {{platillo.published | date:"SHORT_DATE_FORMAT"}}</h6>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}
